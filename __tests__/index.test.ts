@@ -136,7 +136,7 @@ Previous tag: ''
 					'> No draft release found',
 					'> No last release found',
 					'> Fetching all commits for branch master',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -195,9 +195,9 @@ Previous tag: ''
 				stdoutContains(spyOn, [
 					'> Found 3 releases',
 					'> No draft release found',
-					'> Draft release: v2.0.0',
+					'> Last release: v2.0.0',
 					'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -246,9 +246,9 @@ Previous tag: ''
 				stdoutContains(spyOn, [
 					'> Found 1 releases',
 					'> No draft release found',
-					'> Draft release: v2.0.0',
+					'> Last release: v2.0.0',
 					'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -301,9 +301,9 @@ Previous tag: ''
 					stdoutContains(spyOn, [
 						'> Found 1 releases',
 						'> No draft release found',
-						'> Draft release: v2.0.0',
+						'> Last release: v2.0.0',
 						'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-						'> Creating new draft release',
+						'> Creating new release',
 					]);
 
 					expect(fn).toBeCalledTimes(1);
@@ -353,9 +353,9 @@ Previous tag: ''
 					stdoutContains(spyOn, [
 						'> Found 1 releases',
 						'> No draft release found',
-						'> Draft release: v2.0.0',
+						'> Last release: v2.0.0',
 						'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-						'> Creating new draft release',
+						'> Creating new release',
 					]);
 
 					expect(fn).toBeCalledTimes(1);
@@ -417,9 +417,9 @@ Previous tag: ''
 				stdoutContains(spyOn, [
 					'> Found 3 releases',
 					'> No draft release found',
-					'> Draft release: v2.0.0',
+					'> Last release: v2.0.0',
 					'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn1).toBeCalledTimes(1);
@@ -467,7 +467,7 @@ Previous tag: ''
 						'> No draft release found',
 						'> No last release found',
 						'> Fetching all commits for branch master',
-						'> Creating new draft release',
+						'> Creating new release',
 					]);
 
 					expect(fn).toBeCalledTimes(1);
@@ -586,9 +586,9 @@ Previous tag: ''
 				stdoutContains(spyOn, [
 					'> Found 1 releases',
 					'> No draft release found',
-					'> Draft release: v2.0.0',
+					'> Last release: v2.0.0',
 					'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -648,9 +648,9 @@ Previous tag: ''
 				stdoutContains(spyOn, [
 					'> Found 1 releases',
 					'> No draft release found',
-					'> Draft release: v2.0.0',
+					'> Last release: v2.0.0',
 					'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -714,9 +714,9 @@ Previous tag: ''
 				stdoutContains(spyOn, [
 					'> Found 1 releases',
 					'> No draft release found',
-					'> Draft release: v2.0.0',
+					'> Last release: v2.0.0',
 					'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -784,9 +784,9 @@ Previous tag: ''
 				stdoutContains(spyOn, [
 					'> Found 1 releases',
 					'> No draft release found',
-					'> Draft release: v2.0.0',
+					'> Last release: v2.0.0',
 					'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -847,9 +847,9 @@ Previous tag: ''
 				stdoutContains(spyOn, [
 					'> Found 1 releases',
 					'> No draft release found',
-					'> Draft release: v2.0.0',
+					'> Last release: v2.0.0',
 					'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -899,9 +899,9 @@ Previous tag: ''
 				stdoutContains(spyOn, [
 					'> Found 1 releases',
 					'> No draft release found',
-					'> Draft release: v2.0.0',
+					'> Last release: v2.0.0',
 					'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -949,9 +949,9 @@ Previous tag: ''
 				stdoutContains(spyOn, [
 					'> Found 1 releases',
 					'> No draft release found',
-					'> Draft release: v2.0.0',
+					'> Last release: v2.0.0',
 					'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -999,9 +999,9 @@ Previous tag: ''
 				stdoutContains(spyOn, [
 					'> Found 1 releases',
 					'> No draft release found',
-					'> Draft release: v2.0.0',
+					'> Last release: v2.0.0',
 					'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -1061,7 +1061,7 @@ Previous tag: ''
 						'> No draft release found',
 						'> No last release found',
 						'> Fetching all commits for branch master',
-						'> Creating new draft release',
+						'> Creating new release',
 					]);
 
 					expect(fn).toBeCalledTimes(1);
@@ -1120,7 +1120,7 @@ Previous tag: ''
 						'> No draft release found',
 						'> No last release found',
 						'> Fetching all commits for branch master',
-						'> Creating new draft release',
+						'> Creating new release',
 					]);
 
 					expect(fn).toBeCalledTimes(1);
@@ -1179,7 +1179,7 @@ Previous tag: ''
 						'> No draft release found',
 						'> No last release found',
 						'> Fetching all commits for branch master',
-						'> Creating new draft release',
+						'> Creating new release',
 					]);
 
 					expect(fn).toBeCalledTimes(1);
@@ -1251,7 +1251,7 @@ Previous tag: ''
 					'> No draft release found',
 					'> No last release found',
 					'> Fetching all commits for branch master',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -1310,7 +1310,7 @@ Previous tag: ''
 					'> No draft release found',
 					'> No last release found',
 					'> Fetching all commits for branch master',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -1421,7 +1421,7 @@ Previous tag: ''
 				'> No draft release found',
 				'> No last release found',
 				'> Fetching all commits for branch master',
-				'> Creating new draft release',
+				'> Creating new release',
 			]);
 
 			expect(fn).toBeCalledTimes(1);
@@ -1492,7 +1492,7 @@ Previous tag: ''
 				'> No draft release found',
 				'> No last release found',
 				'> Fetching all commits for branch master',
-				'> Creating new draft release',
+				'> Creating new release',
 			]);
 
 			expect(fn).toBeCalledTimes(1);
@@ -1579,9 +1579,9 @@ Previous tag: ''
 			stdoutContains(spyOn, [
 				'> Found 1 releases',
 				'> No draft release found',
-				'> Draft release: v2.0.0',
+				'> Last release: v2.0.0',
 				'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-				'> Creating new draft release',
+				'> Creating new release',
 			]);
 
 			expect(fn).toBeCalledTimes(1);
@@ -1655,9 +1655,9 @@ Previous tag: ''
 						stdoutContains(spyOn, [
 							'> Found 1 releases',
 							'> No draft release found',
-							'> Draft release: v2.0.0',
+							'> Last release: v2.0.0',
 							'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-							'> Creating new draft release',
+							'> Creating new release',
 						]);
 
 						expect(fn).toBeCalledTimes(1);
@@ -1680,9 +1680,9 @@ Previous tag: ''
 						stdoutContains(spyOn, [
 							'> Found 1 releases',
 							'> No draft release found',
-							'> Draft release: v2.0.0',
+							'> Last release: v2.0.0',
 							'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-							'> Creating new draft release',
+							'> Creating new release',
 						]);
 
 						expect(fn).toBeCalledTimes(1);
@@ -1705,9 +1705,9 @@ Previous tag: ''
 						stdoutContains(spyOn, [
 							'> Found 1 releases',
 							'> No draft release found',
-							'> Draft release: v2.0.0',
+							'> Last release: v2.0.0',
 							'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-							'> Creating new draft release',
+							'> Creating new release',
 						]);
 
 						expect(fn).toBeCalledTimes(1);
@@ -1733,9 +1733,9 @@ Previous tag: ''
 						stdoutContains(spyOn, [
 							'> Found 1 releases',
 							'> No draft release found',
-							'> Draft release: v2.0.0',
+							'> Last release: v2.0.0',
 							'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-							'> Creating new draft release',
+							'> Creating new release',
 						]);
 
 						expect(fn).toBeCalledTimes(1);
@@ -1786,7 +1786,7 @@ Previous tag: ''
 					'> No draft release found',
 					'> No last release found',
 					'> Fetching all commits for branch master',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -1831,9 +1831,9 @@ Previous tag: ''
 				stdoutContains(spyOn, [
 					'> Found 1 releases',
 					'> No draft release found',
-					'> Draft release: v2.0.0',
+					'> Last release: v2.0.0',
 					'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -1878,7 +1878,7 @@ Previous tag: ''
 					'> No draft release found',
 					'> No last release found',
 					'> Fetching all commits for branch master',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);
@@ -1921,9 +1921,9 @@ Previous tag: ''
 				stdoutContains(spyOn, [
 					'> Found 1 releases',
 					'> No draft release found',
-					'> Draft release: v2.0.0',
+					'> Last release: v2.0.0',
 					'> Fetching all commits for branch master since 2018-06-29T05:47:08Z',
-					'> Creating new draft release',
+					'> Creating new release',
 				]);
 
 				expect(fn).toBeCalledTimes(1);

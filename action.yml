@@ -21,6 +21,10 @@ inputs:
   name:
     description: name.
     required: false
+  draft:
+    description: draft?
+    default: 'true'
+    required: false
 
 runs:
   using: node12

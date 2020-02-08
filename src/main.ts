@@ -41,7 +41,7 @@ export const run = async(): Promise<void> => {
 			name: releaseInfo.name,
 			'tag_name': releaseInfo.tag,
 			body: releaseInfo.body,
-			draft: true,
+			draft: Utils.getBoolValue(getInput('draft')),
 			prerelease: config.prerelease,
 		});
 	} else {

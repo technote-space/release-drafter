@@ -49,7 +49,7 @@ jobs:
   update_release_draft:
     runs-on: ubuntu-latest
     steps:
-      - uses: technote-space/release-drafter@v1
+      - uses: technote-space/release-drafter@v6
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```

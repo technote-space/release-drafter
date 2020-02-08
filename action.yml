@@ -1,8 +1,31 @@
 name: 'Release Drafter'
+
 description: 'Drafts your next release notes as pull requests are merged into master.'
+
+author: technote-space
+
+inputs:
+  GITHUB_TOKEN:
+    description: Secret GitHub API token to use for making API requests.
+    required: true
+  config-name:
+    description: Config file name.
+    default: 'release-drafter.yml'
+    required: true
+  version:
+    description: version.
+    required: false
+  tag:
+    description: tag.
+    required: false
+  name:
+    description: name.
+    required: false
+
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: node12
+  main: lib/main.js
+
 branding:
   icon: edit-2
-  color: orange 
+  color: orange

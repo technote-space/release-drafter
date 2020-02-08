@@ -51,8 +51,6 @@ template: |
 
 As pull requests are merged, a draft release is kept up-to-date listing the changes, ready to publish when you’re ready:
 
-<img src="design/screenshot.png" alt="Screenshot of generated draft release" width="586" />
-
 The following is a more complicated configuration, which categorises the changes into headings, and automatically suggests the next version number:
 
 ```yml
@@ -156,8 +154,6 @@ categories:
 
 Pull requests with the label "feature" or "fix" will now be grouped together:
 
-<img src="design/screenshot-2.png" alt="Screenshot of generated draft release with categories" width="586" />
-
 Adding such labels to your PRs can be automated by using [PR Labeler](https://github.com/TimonVS/pr-labeler-action) or [Probot Auto Labeler](https://github.com/probot/autolabeler).
 
 ## Exclude Pull Requests
@@ -225,7 +221,7 @@ docker-compose run --rm app npm test
 
 ## Contributing
 
-Third-party contributions are welcome! 🙏🏼 See [CONTRIBUTING.md](CONTRIBUTING.md) for step-by-step instructions.
+Third-party contributions are welcome! 🙏🏼 See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for step-by-step instructions.
 
 If you need help or have a question, let me know via a GitHub issue.
 

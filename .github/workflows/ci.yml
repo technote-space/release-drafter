@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['10', '11', '12']
+        node: ['11', '12']
     steps:
       - uses: actions/checkout@v2
       - uses: technote-space/get-git-comment-action@v1

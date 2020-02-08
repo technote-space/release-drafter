@@ -26,6 +26,14 @@ inputs:
     default: 'true'
     required: false
 
+outputs:
+  id:
+    description: Release ID
+  html_url:
+    description: Release URL
+  upload_url:
+    description: Upload URL
+
 runs:
   using: node12
   main: lib/main.js

@@ -11,7 +11,28 @@ This is a `GitHub Actions` create release.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
 
+- [Usage](#usage)
+- [Configuration](#configuration)
+  - [Example](#example)
+- [Configuration Options](#configuration-options)
+- [Template Variables](#template-variables)
+- [Next Version Variables](#next-version-variables)
+- [Version Template Variables](#version-template-variables)
+- [Change Template Variables](#change-template-variables)
+- [Categorize Pull Requests](#categorize-pull-requests)
+- [Exclude Pull Requests](#exclude-pull-requests)
+- [Replacers](#replacers)
+- [Projects that don't use Semantic Versioning](#projects-that-dont-use-semantic-versioning)
+- [Action event details](#action-event-details)
+  - [Target events](#target-events)
+  - [condition](#condition)
+- [Action Outputs](#action-outputs)
+- [Author](#author)
+
+</details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Usage

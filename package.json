@@ -1,74 +1,74 @@
 {
-  "name": "release-drafter-github-app",
-  "version": "5.3.1",
+  "name": "@technote-space/release-drafter-github",
+  "version": "1.0.0",
   "description": "A GitHub app that bumps version numbers in readmes",
   "author": "Tim Lucas <t@toolmantim.com> (https://github.com/toolmantim)",
+  "contributors": [
+    {
+      "name": "Technote",
+      "email": "technote.space@gmail.com",
+      "url": "https://technote.space"
+    }
+  ],
   "license": "ISC",
-  "repository": "https://github.com/toolmantim/release-drafter",
-  "scripts": {
-    "dev": "nodemon --exec \"npm start\"",
-    "start": "probot run ./index.js",
-    "test": "jest",
-    "test:watch": "jest --watch --notify --notifyMode=change --coverage",
-    "generate-schema": "node ./bin/generate-schema.js print",
-    "lint": "eslint '**/*.js'",
-    "prettier": "prettier --write **/*.{js,md,json}",
-    "postversion": "npm run test && git push && git push --tags && npm publish && npm run deploy && npm run open-releases",
-    "open-releases": "open \"$(node -e 'console.log(`${require(\"./package.json\").repository}/releases`)')\"",
-    "deploy": "git push -f heroku \"$(node -e 'console.log(`v${require(\"./package.json\").version}`)')\":master"
+  "keywords": [
+    "github",
+    "github actions",
+    "github releases"
+  ],
+  "homepage": "https://github.com/technote-space/release-drafter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/technote-space/release-drafter.git"
   },
+  "bugs": {
+    "url": "https://github.com/technote-space/release-drafter/issues"
+  },
+  "files": [
+    "lib",
+    "action.yml"
+  ],
   "dependencies": {
-    "@actions/core": "^1.2.0",
-    "@hapi/joi": "15.1.1",
-    "cli-table3": "^0.5.1",
+    "@actions/core": "^1.2.2",
+    "@hapi/joi": "17.1.0",
+    "@technote-space/filter-github-action": "^0.2.1",
+    "@technote-space/github-action-config-helper": "^0.1.4",
+    "@technote-space/github-action-helper": "^0.8.7",
     "compare-versions": "3.5.1",
-    "escape-string-regexp": "2.0.0",
-    "lodash": "4.17.15",
-    "probot": "9.9.0",
+    "escape-string-regexp": "^2.0.0",
+    "lodash": "^4.17.15",
     "regex-parser": "2.2.10",
     "request": "2.88.0",
-    "semver": "7.1.1"
+    "semver": "7.1.2"
   },
   "devDependencies": {
-    "@types/hapi__joi": "^15.0.4",
+    "@technote-space/github-action-test-helper": "^0.2.1",
+    "@types/jest": "^25.1.2",
+    "@types/node": "^13.7.0",
+    "@typescript-eslint/eslint-plugin": "^2.19.0",
+    "@typescript-eslint/parser": "^2.19.0",
     "eslint": "6.8.0",
-    "eslint-config-prettier": "6.9.0",
-    "eslint-plugin-prettier": "3.1.2",
-    "husky": "4.0.7",
-    "jest": "24.9.0",
+    "jest": "25.1.0",
+    "jest-circus": "^25.1.0",
     "joi-to-json-schema": "^5.1.0",
-    "lint-staged": "9.5.0",
-    "mocked-env": "^1.3.2",
     "nock": "11.7.2",
     "nock-knock": "2.0.0",
     "node-fetch": "2.6.0",
     "nodemon": "2.0.2",
     "prettier": "1.19.1",
-    "smee-client": "1.1.0"
+    "smee-client": "1.1.0",
+    "ts-jest": "^25.2.0",
+    "typescript": "^3.7.5"
   },
-  "engines": {
-    "node": ">= 10.x"
+  "publishConfig": {
+    "access": "public"
   },
-  "jest": {
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "index.js",
-      "lib/**"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{json,css,md}": [
-      "prettier --write",
-      "git add"
-    ]
+  "scripts": {
+    "build": "tsc",
+    "test": "yarn lint && yarn cover",
+    "lint": "eslint 'src/**/*.ts' '__tests__/**/*.ts' --cache",
+    "lint:fix": "eslint --fix 'src/**/*.ts' '__tests__/**/*.ts'",
+    "cover": "jest --coverage",
+    "update": "ncu -u && yarn install && yarn upgrade && yarn audit"
   }
 }

@@ -1,8 +1,5 @@
-node_modules
-npm-debug.log
-*.pem
-.env
-coverage
-now.json
-docker-compose-logs
-package-lock.json
+/.idea
+/node_modules
+/coverage
+/lib
+.eslintcache

@@ -70,7 +70,7 @@ export const run = async(): Promise<void> => {
 	}
 
 	const {data: {id: releaseId, html_url: htmlUrl, upload_url: uploadUrl}} = createOrUpdateReleaseResponse;
-	setOutput('id', releaseId);
+	setOutput('id', String(releaseId));
 	setOutput('html_url', htmlUrl);
 	setOutput('upload_url', uploadUrl);
 };

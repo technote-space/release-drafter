@@ -37,8 +37,8 @@ export const run = async(): Promise<void> => {
 
 	let createOrUpdateReleaseResponse;
 	if (!draftRelease) {
-		logger.info('Creating new draft release');
-		createOrUpdateReleaseResponse = await octokit.repos.createRelease({
+		logger.info('Creating new release');
+		const params = {
 			repo: context.repo.repo,
 			owner: context.repo.owner,
 			name: releaseInfo.name,
@@ -46,16 +46,27 @@ export const run = async(): Promise<void> => {
 			body: releaseInfo.body,
 			draft: Utils.getBoolValue(getInput('draft')),
 			prerelease: config.prerelease,
-		});
+		};
+		logger.startProcess('Create release params');
+		console.log(params);
+		logger.endProcess();
+		createOrUpdateReleaseResponse = await octokit.repos.createRelease(params);
 	} else {
 		logger.info('Updating existing draft release');
-		createOrUpdateReleaseResponse = await octokit.repos.updateRelease({
+		const params = {
 			repo: context.repo.repo,
 			owner: context.repo.owner,
 			'release_id': draftRelease.id,
 			body: releaseInfo.body,
 			...(draftRelease.tag_name ? {'tag_name': draftRelease.tag_name} : null),
-		});
+			...(!Utils.getBoolValue(getInput('draft')) ? {draft: false} : null),
+			...(getInput('tag') ? {'tag_name': getInput('tag')} : null),
+			...(getInput('name') ? {name: getInput('name')} : null),
+		};
+		logger.startProcess('Update release params');
+		console.log(params);
+		logger.endProcess();
+		createOrUpdateReleaseResponse = await octokit.repos.updateRelease(params);
 	}
 
 	const {data: {id: releaseId, html_url: htmlUrl, upload_url: uploadUrl}} = createOrUpdateReleaseResponse;

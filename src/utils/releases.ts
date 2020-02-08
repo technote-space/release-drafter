@@ -40,7 +40,7 @@ export const findReleases = async(logger: Logger, octokit: Octokit, context: Con
 	}
 
 	if (lastRelease) {
-		logger.info('Draft release: %s', lastRelease.tag_name);
+		logger.info('Last release: %s', lastRelease.tag_name);
 	} else {
 		logger.info('No last release found');
 	}

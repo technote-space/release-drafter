@@ -2,7 +2,6 @@
   "compilerOptions": {
     /* https://github.com/actions/toolkit/pull/332 */
     "skipLibCheck": true,
-    "noStrictGenericChecks": true,
 
     /* Basic Options */
     // "incremental": true,                   /* Enable incremental compilation */

@@ -1,3 +1,4 @@
+import Octokit from '@octokit/rest';
 import path from 'path';
 import { getInput, setOutput, setFailed } from '@actions/core';
 import { Context } from '@actions/github/lib/context';
@@ -20,7 +21,9 @@ export const run = async(): Promise<void> => {
 		return;
 	}
 
-	const octokit = new GitHub(Utils.getAccessToken(true));
+	// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+	// @ts-ignore
+	const octokit = new GitHub(Utils.getAccessToken(true)) as Octokit;
 	const branch  = await (new ApiHelper(octokit, context, logger).getDefaultBranch());
 	const config  = await getConfig(branch, getInput('config-name'), logger, octokit, context);
 	if (!config) {

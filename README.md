@@ -5,7 +5,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/technote-space/release-drafter/badge)](https://www.codefactor.io/repository/github/technote-space/release-drafter)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/technote-space/release-drafter/blob/master/LICENSE)
 
-This is a `GitHub Actions` create release.  
+This is a `GitHub Actions` to create release.  
 
 ## Table of Contents
 

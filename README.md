@@ -1,38 +1,38 @@
-<h1 align="center">
-  <img src="design/logo.svg" alt="Release Drafter Logo" width="450" />
-</h1>
+# Release Drafter
 
-<p align="center">Drafts your next release notes as pull requests are merged into master. Built with <a href="https://github.com/probot/probot">Probot</a>.</p>
+[![CI Status](https://github.com/technote-space/release-drafter/workflows/CI/badge.svg)](https://github.com/technote-space/release-drafter/actions)
+[![codecov](https://codecov.io/gh/technote-space/release-drafter/branch/master/graph/badge.svg)](https://codecov.io/gh/technote-space/release-drafter)
+[![CodeFactor](https://www.codefactor.io/repository/github/technote-space/release-drafter/badge)](https://www.codefactor.io/repository/github/technote-space/release-drafter)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/technote-space/release-drafter/blob/master/LICENSE)
 
----
+This is a `GitHub Actions` create release.  
+
+## Table of Contents
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Usage
-
-You can use the [Release Drafter GitHub Action](https://github.com/marketplace/actions/release-drafter) in a [GitHub Actions Workflow](https://help.github.com/en/articles/about-github-actions) by configuring a YAML-based workflow file, e.g. `.github/workflows/release-drafter.yml`, with the following:
-
+e.g. release.yml
 ```yaml
 name: Release Drafter
 
 on:
   push:
-    # branches to consider in the event; optional, defaults to all
-    branches:
-      - master
+    tags:
+      - "v*"
 
 jobs:
   update_release_draft:
     runs-on: ubuntu-latest
     steps:
-      # Drafts your next Release notes as Pull Requests are merged into "master"
-      - uses: release-drafter/release-drafter@v5
+      - uses: technote-space/release-drafter@v1
         with:
-          # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
-          # config-name: my-config.yml
-        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
-
-If you're unable to use GitHub Actions, you can use the Release Drafter GitHub App. Please refer to the [Release Drafter GitHub App documentation](docs/github-app.md) for more information.
+[More details of target event](#action-event-details)
 
 ## Configuration
 
@@ -185,6 +185,17 @@ If your project doesn't follow [Semantic Versioning](https://semver.org) you can
 
 For example, if your project doesn't use patch version numbers, you can set `version-template` to `$MAJOR.$MINOR`. If the current release is version 1.0, then `$NEXT_MINOR_VERSION` will be `1.1`.
 
+## Action event details
+### Target events
+| eventName: action | condition |
+|:---:|:---:|
+|push: *|[condition](#condition)|
+|release: published|[condition](#condition)|
+|create: *|[condition](#condition)|
+### condition
+- tags
+  - semantic versioning tag (e.g. `v1.2.3`)
+
 ## Action Outputs
 
 The Release Drafter GitHub Action sets a couple of outputs which can be used as inputs to other Actions in the workflow ([example](https://github.com/actions/upload-release-asset#example-workflow---upload-a-release-asset)).
@@ -195,54 +206,6 @@ The Release Drafter GitHub Action sets a couple of outputs which can be used as 
 | `html_url`   | The URL users can navigate to in order to view the release. i.e. `https://github.com/octocat/Hello-World/releases/v1.0.0`.                                                                                                    |
 | `upload_url` | The URL for uploading assets to the release, which could be used by GitHub Actions for additional uses, for example the [`@actions/upload-release-asset GitHub Action`](https://www.github.com/actions/upload-release-asset). |
 
-## Developing
-
-If you have Node v10+ installed locally, you can run the tests, and a local app, using the following commands:
-
-```sh
-# Install dependencies
-yarn
-
-# Run the tests
-npm test
-
-# Run the app locally
-npm run dev
-```
-
-Once you've started the app, visit `localhost:3000` and you'll get [step-by-step instructions](https://probot.github.io/docs/development/#configuring-a-github-app) for installing it in your GitHub account so you can start pushing commits and testing it locally.
-
-If you don’t have Node installed, you can use [Docker Compose](https://docs.docker.com/compose/):
-
-```sh
-# Run the tests
-docker-compose run --rm app npm test
-```
-
-## Contributing
-
-Third-party contributions are welcome! 🙏🏼 See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for step-by-step instructions.
-
-If you need help or have a question, let me know via a GitHub issue.
-
-## Deployment
-
-If you want to deploy your own copy of Release Drafter, follow the [Probot Deployment Guide](https://probot.github.io/docs/deployment/).
-
-## Releasing
-
-Run the following command:
-
-```bash
-git checkout master && git pull && npm version [major | minor | patch]
-```
-
-The command does the following:
-
-- Ensures you’re on master and don’t have local, un-commited changes
-- Bumps the version number in [package.json](package.json) based on major, minor or patch
-- Runs the `postversion` npm script in [package.json](package.json), which:
-  - Pushes the tag to GitHub
-  - Publishes the npm release
-  - Deploys to [Now](https://now.sh)
-  - Opens the GitHub releases page so you can publish the release notes
+## Author
+[GitHub (Technote)](https://github.com/technote-space)  
+[Blog](https://technote.space)

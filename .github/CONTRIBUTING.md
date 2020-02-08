@@ -1,7 +1,7 @@
 # Contributing
-[issues]: https://github.com/technote-space/release-github-actions/issues
-[fork]: https://github.com/technote-space/release-github-actions/fork
-[pr]: https://github.com/technote-space/release-github-actions/compare
+[issues]: https://github.com/technote-space/release-drafter/issues
+[fork]: https://github.com/technote-space/release-drafter/fork
+[pr]: https://github.com/technote-space/release-drafter/compare
 [eslint]: https://eslint.org/
 [jest]: https://jestjs.io/
 [code-of-conduct]: CODE_OF_CONDUCT.md

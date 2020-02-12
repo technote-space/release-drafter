@@ -75,4 +75,7 @@ export const run = async(): Promise<void> => {
 	setOutput('upload_url', uploadUrl);
 };
 
-run().catch(error => setFailed(error.message));
+run().catch(error => {
+	console.log(error);
+	setFailed(error.message);
+});

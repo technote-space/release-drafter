@@ -64,11 +64,10 @@ describe('release-drafter', () => {
 
 				payload = require('./fixtures/payload/push');
 
-				await run();
+				await expect(run()).rejects.toThrow('Invalid config file');
 
 				stdoutContains(spyOn, [
 					'::error::"template" is required',
-					'::error::Invalid config file',
 				]);
 			});
 		});
@@ -79,7 +78,7 @@ describe('release-drafter', () => {
 
 				payload = require('./fixtures/payload/push-branch');
 
-				await run();
+				await expect(run()).rejects.toThrow('This is not target event.');
 			});
 		});
 
@@ -1329,11 +1328,10 @@ Previous tag: ''
 				payload   = require('./fixtures/payload/create');
 				eventName = 'create';
 
-				await run();
+				await expect(run()).rejects.toThrow('Invalid config file');
 
 				stdoutContains(spyOn, [
 					'::error::"template" is required',
-					'::error::Invalid config file',
 				]);
 			});
 		});
@@ -1351,11 +1349,10 @@ Previous tag: ''
 				eventName = 'release';
 				action    = 'published';
 
-				await run();
+				await expect(run()).rejects.toThrow('Invalid config file');
 
 				stdoutContains(spyOn, [
 					'::error::"template" is required',
-					'::error::Invalid config file',
 				]);
 			});
 		});
@@ -1506,11 +1503,10 @@ Previous tag: ''
 
 			payload = require('./fixtures/payload/push');
 
-			await run();
+			await expect(run()).rejects.toThrow('Invalid config file');
 
 			stdoutContains(spyOn, [
 				'::error::error() must return an Error object',
-				'::error::Invalid config file',
 			]);
 		});
 
@@ -1520,13 +1516,12 @@ Previous tag: ''
 
 			payload = require('./fixtures/payload/push');
 
-			await run();
+			await expect(run()).rejects.toThrow('Invalid config file');
 
 			stdoutContains(spyOn, [
 				'::error::end of the stream or a document separator is expected at line 1, column 18:',
 				'::error::    change-template: - #$NUMBER \'$TITLE\' @$AUTHOR',
 				'::error::                     ^',
-				'::error::Invalid config file',
 			]);
 		});
 	});

@@ -33,13 +33,12 @@ describe('getConfig', () => {
 			}));
 			const spyOn = spyOnStdout();
 
-			expect(await getConfig('master', '', logger, getOctokit(), getContext({
+			await expect(getConfig('master', '', logger, getOctokit(), getContext({
 				payload: {repository: {'default_branch': 'master'}},
-			}))).toBeNull();
+			}))).rejects.toThrow('Invalid config file');
 
 			stdoutContains(spyOn, [
 				'::error::"replacers" must be an array. "template" is required',
-				'::error::Invalid config file',
 			]);
 
 			spy.mockReset();
@@ -74,13 +73,12 @@ describe('getConfig', () => {
 			}));
 			const spyOn = spyOnStdout();
 
-			expect(await getConfig('master', '', logger, getOctokit(), getContext({
+			await expect(getConfig('master', '', logger, getOctokit(), getContext({
 				payload: {repository: {'default_branch': 'master'}},
-			}))).toBeNull();
+			}))).rejects.toThrow('Invalid config file');
 
 			stdoutContains(spyOn, [
 				'::error::"sort-direction" must be one of [ascending, descending]. "template" is required',
-				'::error::Invalid config file',
 			]);
 
 			spy.mockReset();

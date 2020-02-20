@@ -11,14 +11,13 @@ import { findCommitsWithAssociatedPullRequests } from './utils/commits';
 import { sortPullRequests } from './utils/sort-pull-requests';
 import { TARGET_EVENTS } from './constant';
 
-export const run = async(): Promise<void> => {
+export const run = async(): Promise<void> | never => {
 	const logger  = new Logger();
 	const context = new Context();
 	ContextHelper.showActionInfo(path.resolve(__dirname, '..'), logger, context);
 
 	if (!isTargetEvent(TARGET_EVENTS, context)) {
-		logger.info('This is not target event.');
-		return;
+		throw new Error('This is not target event.');
 	}
 
 	// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
@@ -26,9 +25,6 @@ export const run = async(): Promise<void> => {
 	const octokit = new GitHub(Utils.getAccessToken(true)) as Octokit;
 	const branch  = await (new ApiHelper(octokit, context, logger).getDefaultBranch());
 	const config  = await getConfig(branch, getInput('config-name'), logger, octokit, context);
-	if (!config) {
-		return;
-	}
 
 	const {draftRelease, lastRelease}                 = await findReleases(logger, octokit, context);
 	const {commits, pullRequests: mergedPullRequests} = await findCommitsWithAssociatedPullRequests(branch, lastRelease, logger, octokit, context);

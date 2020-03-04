@@ -50,8 +50,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: technote-space/release-drafter@v6
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 [More details of target event](#action-event-details)
 

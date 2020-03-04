@@ -1,5 +1,5 @@
 import Octokit from '@octokit/rest';
-import path from 'path';
+import { resolve } from 'path';
 import { getInput, setOutput, setFailed } from '@actions/core';
 import { Context } from '@actions/github/lib/context';
 import { GitHub } from '@actions/github';
@@ -14,7 +14,7 @@ import { TARGET_EVENTS } from './constant';
 export const run = async(): Promise<void> | never => {
 	const logger  = new Logger();
 	const context = new Context();
-	ContextHelper.showActionInfo(path.resolve(__dirname, '..'), logger, context);
+	ContextHelper.showActionInfo(resolve(__dirname, '..'), logger, context);
 
 	if (!isTargetEvent(TARGET_EVENTS, context)) {
 		throw new Error('This is not target event.');

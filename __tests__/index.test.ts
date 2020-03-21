@@ -1509,21 +1509,6 @@ Previous tag: ''
 				'::error::error() must return an Error object',
 			]);
 		});
-
-		it('yaml exception', async() => {
-			getConfigMock('config-with-yaml-exception.yml');
-			const spyOn = spyOnStdout();
-
-			payload = require('./fixtures/payload/push');
-
-			await expect(run()).rejects.toThrow('Invalid config file');
-
-			stdoutContains(spyOn, [
-				'::error::end of the stream or a document separator is expected at line 1, column 18:',
-				'::error::    change-template: - #$NUMBER \'$TITLE\' @$AUTHOR',
-				'::error::                     ^',
-			]);
-		});
 	});
 
 	describe('with config-name input', () => {

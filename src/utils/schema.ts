@@ -88,6 +88,7 @@ export const validateSchema = (defaultBranch: string, logger: Logger, repoConfig
   try {
     config.replacers = validateReplacers(logger, config.replacers);
   } catch (error) {
+    /* istanbul ignore next */
     config.replacers = [];
   }
 

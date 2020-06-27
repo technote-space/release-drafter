@@ -12,6 +12,7 @@ const sortReleases = (releases: Array<{ 'tag_name': string; 'published_at': stri
   try {
     return releases.sort((r1, r2) => compareVersions(r1.tag_name, r2.tag_name));
   } catch (error) {
+    /* istanbul ignore next */
     return releases.sort(
       (r1, r2) => (new Date(r1.published_at)).getTimezoneOffset() - (new Date(r2.published_at)).getTimezoneOffset(),
     );

@@ -37,7 +37,9 @@ export const validateReplacers = (logger: Logger, replacers: Array<{ search: str
   try {
     return {...replacer, search: toRegex(replacer.search)};
   } catch (error) {
+    /* istanbul ignore next */
     logger.error('Bad replacer regex: %s', replacer.search);
+    /* istanbul ignore next */
     return {search: '', replace: '', invalid: true};
   }
 }).filter(item => !item.invalid);

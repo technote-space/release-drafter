@@ -65,7 +65,7 @@ describe('pagination', () => {
     });
   });
 
-  it('throws when query doesn\'t return `nodes` or `pageInfo` fields', async() => {
+  it('throws when query doesn\'t return `nodes` fields', async() => {
     const queryFn = jest.fn();
     // query is empty because we mock the result
     const query   = '';
@@ -73,5 +73,33 @@ describe('pagination', () => {
     queryFn.mockReturnValueOnce(Promise.resolve({}));
 
     await expect(paginate(queryFn, query, {}, [])).rejects.toThrow();
+  });
+
+  it('throws when query doesn\'t return `pageInfo` fields', async() => {
+    const queryFn = jest.fn();
+    // query is empty because we mock the result
+    const query   = '';
+
+    queryFn
+      .mockReturnValueOnce(
+        Promise.resolve({
+          repository: {
+            ref: {
+              target: {
+                history: {
+                  nodes: ['a', 'b', 'c'],
+                },
+              },
+            },
+          },
+        }),
+      );
+
+    await expect(paginate(queryFn, query, {}, [
+      'repository',
+      'ref',
+      'target',
+      'history',
+    ])).rejects.toThrow();
   });
 });

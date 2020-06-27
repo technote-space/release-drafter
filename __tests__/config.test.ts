@@ -5,6 +5,7 @@ import {Logger} from '@technote-space/github-action-helper';
 import {getOctokit, getContext, spyOnStdout, stdoutContains} from '@technote-space/github-action-test-helper';
 
 const logger = new Logger();
+jest.mock('@technote-space/github-action-config-helper');
 
 describe('getConfig', () => {
   it('returns defaults', async() => {

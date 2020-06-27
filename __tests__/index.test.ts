@@ -7,7 +7,8 @@ import {
   disableNetConnect,
   getApiFixture,
   getConfigFixture,
-  spyOnStdout, stdoutContains,
+  spyOnStdout,
+  stdoutContains,
 } from '@technote-space/github-action-test-helper';
 
 const rootDir        = resolve(__dirname, '..');
@@ -17,7 +18,7 @@ const getConfigMock  = (
   repoFileName = 'release-drafter.yml',
 ): Scope => {
   return nock('https://api.github.com')
-    .get(`/repos/toolmantim/release-drafter-test-project/contents/.github/${repoFileName}`)
+    .get(`/repos/toolmantim/release-drafter-test-project/contents/${encodeURIComponent(`.github/${repoFileName}`)}`)
     .reply(200, getConfigFixture(resolve(fixtureRootDir, 'config'), fileName));
 };
 
@@ -59,7 +60,7 @@ describe('release-drafter', () => {
       it('does nothing', async() => {
         const spyOn = spyOnStdout();
         nock('https://api.github.com')
-          .get('/repos/toolmantim/release-drafter-test-project/contents/.github/release-drafter.yml')
+          .get(`/repos/toolmantim/release-drafter-test-project/contents/${encodeURIComponent('.github/release-drafter.yml')}`)
           .reply(404);
 
         payload = require('./fixtures/payload/push');
@@ -1322,7 +1323,7 @@ Previous tag: ''
       it('does nothing', async() => {
         const spyOn = spyOnStdout();
         nock('https://api.github.com')
-          .get('/repos/toolmantim/release-drafter-test-project/contents/.github/release-drafter.yml')
+          .get(`/repos/toolmantim/release-drafter-test-project/contents/${encodeURIComponent('.github/release-drafter.yml')}`)
           .reply(404);
 
         payload   = require('./fixtures/payload/create');
@@ -1342,7 +1343,7 @@ Previous tag: ''
       it('does nothing', async() => {
         const spyOn = spyOnStdout();
         nock('https://api.github.com')
-          .get('/repos/toolmantim/release-drafter-test-project/contents/.github/release-drafter.yml')
+          .get(`/repos/toolmantim/release-drafter-test-project/contents/${encodeURIComponent('.github/release-drafter.yml')}`)
           .reply(404);
 
         payload   = require('./fixtures/payload/release');

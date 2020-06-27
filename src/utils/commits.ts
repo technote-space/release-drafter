@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import { GitHub } from '@actions/github';
-import { Context } from '@actions/github/lib/context';
-import { Logger } from '@technote-space/github-action-helper';
-import { paginate } from './pagination';
+import {GitHub} from '@actions/github';
+import {Context} from '@actions/github/lib/context';
+import {Logger} from '@technote-space/github-action-helper';
+import {paginate} from './pagination';
 
 export const findCommitsWithAssociatedPullRequestsQuery = /* GraphQL */ `
   query findCommitsWithAssociatedPullRequests(
@@ -57,36 +57,36 @@ export const findCommitsWithAssociatedPullRequestsQuery = /* GraphQL */ `
 `;
 
 export const findCommitsWithAssociatedPullRequests = async(branch: string, lastRelease: { 'published_at': string }, logger: Logger, octokit: GitHub, context: Context): Promise<{ commits; pullRequests }> => {
-	const {owner, repo} = context.repo;
-	const variables     = {name: repo, owner, branch};
-	const dataPath      = ['repository', 'ref', 'target', 'history'];
+  const {owner, repo} = context.repo;
+  const variables     = {name: repo, owner, branch};
+  const dataPath      = ['repository', 'ref', 'target', 'history'];
 
-	let data;
-	if (lastRelease) {
-		logger.info('Fetching all commits for branch %s since %s', branch, lastRelease.published_at);
+  let data;
+  if (lastRelease) {
+    logger.info('Fetching all commits for branch %s since %s', branch, lastRelease.published_at);
 
-		data = await paginate(
-			octokit.graphql,
-			findCommitsWithAssociatedPullRequestsQuery,
-			{...variables, since: lastRelease.published_at},
-			dataPath,
-		);
-	} else {
-		logger.info('Fetching all commits for branch %s', branch);
+    data = await paginate(
+      octokit.graphql,
+      findCommitsWithAssociatedPullRequestsQuery,
+      {...variables, since: lastRelease.published_at},
+      dataPath,
+    );
+  } else {
+    logger.info('Fetching all commits for branch %s', branch);
 
-		data = await paginate(
-			octokit.graphql,
-			findCommitsWithAssociatedPullRequestsQuery,
-			variables,
-			dataPath,
-		);
-	}
+    data = await paginate(
+      octokit.graphql,
+      findCommitsWithAssociatedPullRequestsQuery,
+      variables,
+      dataPath,
+    );
+  }
 
-	const commits      = _.get(data, [...dataPath, 'nodes']);
-	const pullRequests = _.uniqBy(
-		_.flatten(commits.map(commit => commit.associatedPullRequests.nodes)),
-		'number',
-	);
+  const commits      = _.get(data, [...dataPath, 'nodes']);
+  const pullRequests = _.uniqBy(
+    _.flatten(commits.map(commit => commit.associatedPullRequests.nodes)),
+    'number',
+  );
 
-	return {commits, pullRequests};
+  return {commits, pullRequests};
 };

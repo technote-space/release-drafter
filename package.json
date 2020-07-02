@@ -32,8 +32,8 @@
     "@actions/core": "^1.2.4",
     "@actions/github": "^4.0.0",
     "@hapi/joi": "17.1.1",
-    "@technote-space/filter-github-action": "^0.2.18",
-    "@technote-space/github-action-config-helper": "^2.0.2",
+    "@technote-space/filter-github-action": "^0.2.19",
+    "@technote-space/github-action-config-helper": "^2.0.3",
     "@technote-space/github-action-helper": "^3.0.3",
     "compare-versions": "3.6.0",
     "escape-string-regexp": "^4.0.0",
@@ -57,14 +57,14 @@
     "jest-circus": "^26.1.0",
     "joi-to-json-schema": "^5.1.0",
     "lint-staged": "^10.2.11",
-    "nock": "13.0.0",
+    "nock": "13.0.2",
     "nock-knock": "2.0.0",
     "node-fetch": "2.6.0",
     "nodemon": "2.0.4",
     "prettier": "2.0.5",
     "smee-client": "1.1.0",
     "ts-jest": "^26.1.1",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.6"
   },
   "publishConfig": {
     "access": "public"

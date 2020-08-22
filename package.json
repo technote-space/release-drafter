@@ -53,8 +53,8 @@
     "@typescript-eslint/parser": "^3.9.1",
     "eslint": "7.7.0",
     "husky": "^4.2.5",
-    "jest": "26.4.0",
-    "jest-circus": "^26.4.0",
+    "jest": "26.4.1",
+    "jest-circus": "^26.4.1",
     "joi-to-json-schema": "^5.1.0",
     "lint-staged": "^10.2.11",
     "nock": "13.0.4",
@@ -62,9 +62,9 @@
     "node-fetch": "2.6.0",
     "nodemon": "2.0.4",
     "prettier": "2.0.5",
-    "smee-client": "1.1.0",
+    "smee-client": "1.2.2",
     "ts-jest": "^26.2.0",
-    "typescript": "^3.9.7"
+    "typescript": "^4.0.2"
   },
   "publishConfig": {
     "access": "public"

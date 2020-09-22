@@ -2,7 +2,7 @@ import {Octokit} from '@technote-space/github-action-helper/dist/types';
 import {Context} from '@actions/github/lib/context';
 import {validateSchema} from './schema';
 import {DEFAULT_CONFIG} from './default-config';
-import {Logger} from '@technote-space/github-action-helper';
+import {Logger} from '@technote-space/github-action-log-helper';
 import {getConfig as getRepoConfig} from '@technote-space/github-action-config-helper';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

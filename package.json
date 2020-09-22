@@ -1,6 +1,6 @@
 {
   "name": "@technote-space/release-drafter-github",
-  "version": "6.2.9",
+  "version": "6.3.0",
   "description": "A GitHub app that bumps version numbers in readmes",
   "author": "Tim Lucas <t@toolmantim.com> (https://github.com/toolmantim)",
   "contributors": [
@@ -32,9 +32,11 @@
     "@actions/core": "^1.2.5",
     "@actions/github": "^4.0.0",
     "@hapi/joi": "17.1.1",
+    "@octokit/types": "^5.5.0",
     "@technote-space/filter-github-action": "^0.5.3",
     "@technote-space/github-action-config-helper": "^2.0.11",
     "@technote-space/github-action-helper": "^4.0.1",
+    "@technote-space/github-action-log-helper": "^0.1.0",
     "compare-versions": "3.6.0",
     "escape-string-regexp": "^4.0.0",
     "lodash": "^4.17.20",

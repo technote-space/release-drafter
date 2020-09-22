@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import {GitHub} from '@actions/github';
 import {Context} from '@actions/github/lib/context';
-import {Logger} from '@technote-space/github-action-helper';
+import {Logger} from '@technote-space/github-action-log-helper';
 import {paginate} from './pagination';
 
 export const findCommitsWithAssociatedPullRequestsQuery = /* GraphQL */ `

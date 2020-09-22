@@ -1,4 +1,4 @@
-import Logger from '@technote-space/github-action-helper/dist/logger';
+import {Logger} from '@technote-space/github-action-log-helper';
 import {Octokit} from '@technote-space/github-action-helper/dist/types';
 import {Context} from '@actions/github/lib/context';
 import compareVersions from 'compare-versions';

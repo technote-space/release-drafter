@@ -1,4 +1,4 @@
-import Logger from '@technote-space/github-action-helper/dist/logger';
+import {Logger} from '@technote-space/github-action-log-helper';
 import Joi from '@hapi/joi';
 import {SORT_BY, SORT_DIRECTIONS} from './sort-pull-requests';
 import {DEFAULT_CONFIG} from './default-config';

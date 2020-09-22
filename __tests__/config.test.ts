@@ -1,7 +1,7 @@
 import {DEFAULT_CONFIG} from '../src/utils/default-config';
 import {getConfig} from '../src/utils/config';
 import {SORT_DIRECTIONS} from '../src/utils/sort-pull-requests';
-import {Logger} from '@technote-space/github-action-helper';
+import {Logger} from '@technote-space/github-action-log-helper';
 import {getOctokit, getContext, spyOnStdout, stdoutContains} from '@technote-space/github-action-test-helper';
 
 const logger = new Logger();

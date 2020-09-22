@@ -1,4 +1,4 @@
-import {Logger} from '@technote-space/github-action-helper';
+import {Logger} from '@technote-space/github-action-log-helper';
 import {template, validateReplacers} from '../src/utils/template';
 
 const logger = new Logger();

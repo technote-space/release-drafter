@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import {GitHub} from '@actions/github';
+import {Octokit} from '@octokit/core';
 import {Context} from '@actions/github/lib/context';
 import {Logger} from '@technote-space/github-action-log-helper';
 import {paginate} from './pagination';
@@ -56,7 +56,7 @@ export const findCommitsWithAssociatedPullRequestsQuery = /* GraphQL */ `
   }
 `;
 
-export const findCommitsWithAssociatedPullRequests = async(branch: string, lastRelease: { 'published_at': string }, logger: Logger, octokit: GitHub, context: Context): Promise<{ commits; pullRequests }> => {
+export const findCommitsWithAssociatedPullRequests = async(branch: string, lastRelease: { 'published_at': string }, logger: Logger, octokit: Octokit, context: Context): Promise<{ commits; pullRequests }> => {
   const {owner, repo} = context.repo;
   const variables     = {name: repo, owner, branch};
   const dataPath      = ['repository', 'ref', 'target', 'history'];

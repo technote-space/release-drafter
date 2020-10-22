@@ -1,6 +1,6 @@
 import regexParser from 'regex-parser';
 import regexEscape from 'escape-string-regexp';
-import {Logger} from '@technote-space/github-action-helper';
+import {Logger} from '@technote-space/github-action-log-helper';
 
 /**
  * replaces all uppercase dollar templates with their string representation from obj

@@ -1,7 +1,21 @@
 {
   "name": "@technote-space/release-drafter-github",
-  "version": "6.3.1",
+  "version": "6.3.2",
   "description": "A GitHub app that bumps version numbers in readmes",
+  "keywords": [
+    "github",
+    "github actions",
+    "github releases"
+  ],
+  "homepage": "https://github.com/technote-space/release-drafter",
+  "bugs": {
+    "url": "https://github.com/technote-space/release-drafter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/technote-space/release-drafter.git"
+  },
+  "license": "ISC",
   "author": "Tim Lucas <t@toolmantim.com> (https://github.com/toolmantim)",
   "contributors": [
     {
@@ -10,24 +24,19 @@
       "url": "https://technote.space"
     }
   ],
-  "license": "ISC",
-  "keywords": [
-    "github",
-    "github actions",
-    "github releases"
-  ],
-  "homepage": "https://github.com/technote-space/release-drafter",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/technote-space/release-drafter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/technote-space/release-drafter/issues"
-  },
   "files": [
     "lib",
     "action.yml"
   ],
+  "scripts": {
+    "build": "tsc",
+    "cover": "jest --coverage",
+    "lint": "eslint 'src/**/*.ts' '__tests__/**/*.ts' --cache",
+    "lint:fix": "eslint --fix 'src/**/*.ts' '__tests__/**/*.ts'",
+    "release": "yarn release-ga --test",
+    "test": "yarn lint && yarn cover",
+    "update": "npx npm-check-updates -u && yarn install && yarn upgrade && yarn audit"
+  },
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
@@ -70,14 +79,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "build": "tsc",
-    "test": "yarn lint && yarn cover",
-    "lint": "eslint 'src/**/*.ts' '__tests__/**/*.ts' --cache",
-    "lint:fix": "eslint --fix 'src/**/*.ts' '__tests__/**/*.ts'",
-    "cover": "jest --coverage",
-    "update": "npx npm-check-updates -u && yarn install && yarn upgrade && yarn audit",
-    "release": "yarn release-ga --test"
   }
 }

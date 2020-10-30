@@ -1,7 +1,21 @@
 {
   "name": "@technote-space/release-drafter-github",
-  "version": "6.3.1",
+  "version": "6.3.2",
   "description": "A GitHub app that bumps version numbers in readmes",
+  "keywords": [
+    "github",
+    "github actions",
+    "github releases"
+  ],
+  "homepage": "https://github.com/technote-space/release-drafter",
+  "bugs": {
+    "url": "https://github.com/technote-space/release-drafter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/technote-space/release-drafter.git"
+  },
+  "license": "ISC",
   "author": "Tim Lucas <t@toolmantim.com> (https://github.com/toolmantim)",
   "contributors": [
     {
@@ -10,33 +24,28 @@
       "url": "https://technote.space"
     }
   ],
-  "license": "ISC",
-  "keywords": [
-    "github",
-    "github actions",
-    "github releases"
-  ],
-  "homepage": "https://github.com/technote-space/release-drafter",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/technote-space/release-drafter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/technote-space/release-drafter/issues"
-  },
   "files": [
     "lib",
     "action.yml"
   ],
+  "scripts": {
+    "build": "tsc",
+    "cover": "jest --coverage",
+    "lint": "eslint 'src/**/*.ts' '__tests__/**/*.ts' --cache",
+    "lint:fix": "eslint --fix 'src/**/*.ts' '__tests__/**/*.ts'",
+    "release": "yarn release-ga --test",
+    "test": "yarn lint && yarn cover",
+    "update": "npx npm-check-updates -u && yarn install && yarn upgrade && yarn audit"
+  },
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "@hapi/joi": "17.1.1",
     "@octokit/types": "^5.5.0",
-    "@technote-space/filter-github-action": "^0.5.5",
+    "@technote-space/filter-github-action": "^0.5.6",
     "@technote-space/github-action-config-helper": "^2.0.12",
-    "@technote-space/github-action-helper": "^4.0.4",
-    "@technote-space/github-action-log-helper": "^0.1.5",
+    "@technote-space/github-action-helper": "^4.0.5",
+    "@technote-space/github-action-log-helper": "^0.1.6",
     "compare-versions": "3.6.0",
     "escape-string-regexp": "^4.0.0",
     "lodash": "^4.17.20",
@@ -47,37 +56,28 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "@technote-space/github-action-test-helper": "^0.6.1",
+    "@technote-space/github-action-test-helper": "^0.6.2",
     "@technote-space/release-github-actions-cli": "^1.7.1",
     "@types/jest": "^26.0.15",
-    "@types/node": "^14.14.2",
-    "@typescript-eslint/eslint-plugin": "^4.5.0",
-    "@typescript-eslint/parser": "^4.5.0",
-    "eslint": "7.11.0",
+    "@types/node": "^14.14.6",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "eslint": "7.12.1",
     "husky": "^4.3.0",
-    "jest": "26.6.0",
-    "jest-circus": "^26.6.0",
+    "jest": "26.6.1",
+    "jest-circus": "^26.6.1",
     "joi-to-json-schema": "^5.1.0",
-    "lint-staged": "^10.4.2",
+    "lint-staged": "^10.5.0",
     "nock": "13.0.4",
     "nock-knock": "2.0.0",
     "node-fetch": "2.6.1",
     "nodemon": "2.0.6",
     "prettier": "2.1.2",
     "smee-client": "1.2.2",
-    "ts-jest": "^26.4.1",
-    "typescript": "^4.0.3"
+    "ts-jest": "^26.4.3",
+    "typescript": "^4.0.5"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "build": "tsc",
-    "test": "yarn lint && yarn cover",
-    "lint": "eslint 'src/**/*.ts' '__tests__/**/*.ts' --cache",
-    "lint:fix": "eslint --fix 'src/**/*.ts' '__tests__/**/*.ts'",
-    "cover": "jest --coverage",
-    "update": "npx npm-check-updates -u && yarn install && yarn upgrade && yarn audit",
-    "release": "yarn release-ga --test"
   }
 }

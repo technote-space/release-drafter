@@ -7,8 +7,14 @@ import {getConfig as getRepoConfig} from '@technote-space/github-action-config-h
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getConfig = async(defaultBranch: string, configName: string, logger: Logger, octokit: Octokit, context: Context): Promise<any> | never => {
+  const config = await getRepoConfig(configName, octokit, context);
+  if (typeof config === 'boolean') {
+    logger.error('"template" is required');
+    throw new Error('Invalid config file');
+  }
+
   try {
-    return validateSchema(defaultBranch, logger, {...DEFAULT_CONFIG, ...await getRepoConfig(configName, octokit, context)});
+    return validateSchema(defaultBranch, logger, {...DEFAULT_CONFIG, ...config});
   } catch (error) {
     logger.error(error.message);
     throw new Error('Invalid config file');

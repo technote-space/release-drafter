@@ -1,12 +1,17 @@
 import {Logger} from '@technote-space/github-action-log-helper';
 import {Octokit} from '@technote-space/github-action-helper/dist/types';
+import {Utils} from '@technote-space/github-action-helper';
 import {Context} from '@actions/github/lib/context';
 import compareVersions from 'compare-versions';
-import {ReposListReleasesResponseData} from '@octokit/types/dist-types/generated/Endpoints';
+import {components} from '@octokit/openapi-types';
 import {getVersionInfo} from './versions';
 import {template} from './template';
 
-const sortReleases = (releases: Array<{ 'tag_name': string; 'published_at': string }>): Array<{ 'tag_name': string }> => {
+type ReposListReleasesResponseData = components['schemas']['release'];
+
+const {ensureNotNull} = Utils;
+
+const sortReleases = (releases: Array<{ 'tag_name': string; 'published_at': string | null }>): Array<{ 'tag_name': string }> => {
   // For semver, we find the greatest release number
   // For non-semver, we use the most recently merged
   try {
@@ -14,13 +19,13 @@ const sortReleases = (releases: Array<{ 'tag_name': string; 'published_at': stri
   } catch (error) {
     /* istanbul ignore next */
     return releases.sort(
-      (r1, r2) => (new Date(r1.published_at)).getTimezoneOffset() - (new Date(r2.published_at)).getTimezoneOffset(),
+      (r1, r2) => (new Date(ensureNotNull(r1.published_at))).getTimezoneOffset() - (new Date(ensureNotNull(r2.published_at))).getTimezoneOffset(),
     );
   }
 };
 
 export const findReleases = async(logger: Logger, octokit: Octokit, context: Context): Promise<{ draftRelease; lastRelease }> => {
-  const releases: ReposListReleasesResponseData = await octokit.paginate(
+  const releases: Array<ReposListReleasesResponseData> = await octokit.paginate(
     octokit.repos.listReleases,
     {
       repo: context.repo.repo,

@@ -7,7 +7,6 @@ module.exports = {
   testRunner: 'jest-circus/runner',
   transform: {
     '^.+\\.ts$': 'ts-jest',
-    '^.+\\.[jt]sx?$': 'babel-jest',
   },
   verbose: true,
   coverageDirectory: '<rootDir>/coverage',
@@ -16,7 +15,4 @@ module.exports = {
       diagnostics: false,
     },
   },
-  transformIgnorePatterns: [
-    'node_modules/(?!escape-string-regexp).+\\.js$',
-  ],
 };

@@ -35,7 +35,7 @@
     "lint:fix": "eslint --fix 'src/**/*.ts' '__tests__/**/*.ts'",
     "release": "yarn release-ga --test",
     "test": "yarn lint && yarn cover",
-    "update": "npm_config_yes=true npx npm-check-updates -u --timeout 100000 && yarn install && yarn upgrade && yarn audit",
+    "update": "npm_config_yes=true npx npm-check-updates -u --timeout 100000 -x escape-string-regexp && yarn install && yarn upgrade && yarn audit",
     "postinstall": "[ -n \"$CI\" ] || [ ! -f node_modules/.bin/husky ] || husky install",
     "prepublishOnly": "[ -n \"$CI\" ] || [ ! -f node_modules/.bin/pinst ] || pinst --disable",
     "postpublish": "[ -n \"$CI\" ] || [ ! -f node_modules/.bin/pinst ] || pinst --enable"
@@ -50,7 +50,7 @@
     "@technote-space/github-action-helper": "^5.2.6",
     "@technote-space/github-action-log-helper": "^0.1.24",
     "compare-versions": "3.6.0",
-    "escape-string-regexp": "^5.0.0",
+    "escape-string-regexp": "^4.0.0",
     "lodash": "^4.17.21",
     "regex-parser": "2.2.11",
     "request": "2.88.2",
@@ -59,7 +59,7 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
-    "@technote-space/github-action-test-helper": "^0.7.8",
+    "@technote-space/github-action-test-helper": "^0.7.9",
     "@technote-space/release-github-actions-cli": "^1.8.4",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.0.1",

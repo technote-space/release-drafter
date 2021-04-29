@@ -1,11 +1,12 @@
 import regexParser from 'regex-parser';
-import regexEscape from 'escape-string-regexp';
 import {Logger} from '@technote-space/github-action-log-helper';
 
 /**
  * replaces all uppercase dollar templates with their string representation from obj
  * if replacement is undefined in obj the dollar template string is left untouched
  */
+
+const regexEscape = (string: string): string => string.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&').replace(/-/g, '\\x2d');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const template = (string: string, obj: { [key: string]: any }, customReplacers?: Array<{ search: string | RegExp; replace: string }>): string => {

@@ -43,7 +43,7 @@ export const run = async(): Promise<void> | never => {
     logger.startProcess('Create release params');
     console.log(params);
     logger.endProcess();
-    createOrUpdateReleaseResponse = await octokit.repos.createRelease(params);
+    createOrUpdateReleaseResponse = await octokit.rest.repos.createRelease(params);
   } else {
     logger.info('Updating existing draft release');
     const params = {
@@ -59,7 +59,7 @@ export const run = async(): Promise<void> | never => {
     logger.startProcess('Update release params');
     console.log(params);
     logger.endProcess();
-    createOrUpdateReleaseResponse = await octokit.repos.updateRelease(params);
+    createOrUpdateReleaseResponse = await octokit.rest.repos.updateRelease(params);
   }
 
   const {data: {id: releaseId, html_url: htmlUrl, upload_url: uploadUrl}} = createOrUpdateReleaseResponse;

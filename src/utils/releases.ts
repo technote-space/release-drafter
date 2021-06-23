@@ -26,7 +26,7 @@ const sortReleases = (releases: Array<{ 'tag_name': string; 'published_at': stri
 
 export const findReleases = async(logger: Logger, octokit: Octokit, context: Context): Promise<{ draftRelease; lastRelease }> => {
   const releases: Array<ReposListReleasesResponseData> = await octokit.paginate(
-    octokit.repos.listReleases,
+    octokit.rest.repos.listReleases,
     {
       repo: context.repo.repo,
       owner: context.repo.owner,

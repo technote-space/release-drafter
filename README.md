@@ -28,7 +28,6 @@ This is a `GitHub Actions` to create release.
 - [Projects that don't use Semantic Versioning](#projects-that-dont-use-semantic-versioning)
 - [Action event details](#action-event-details)
   - [Target events](#target-events)
-  - [condition](#condition)
 - [Action Outputs](#action-outputs)
 - [Author](#author)
 

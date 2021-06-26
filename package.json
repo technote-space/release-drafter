@@ -1,6 +1,6 @@
 {
   "name": "@technote-space/release-drafter-github",
-  "version": "6.3.12",
+  "version": "6.3.13",
   "description": "A GitHub app that bumps version numbers in readmes",
   "keywords": [
     "github",

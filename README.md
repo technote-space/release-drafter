@@ -211,6 +211,7 @@ For example, if your project doesn't use patch version numbers, you can set `ver
 |push: *|[condition](#condition)|
 |release: published|[condition](#condition)|
 |create: *|[condition](#condition)|
+
 ### condition
 - tags
   - semantic versioning tag (e.g. `v1.2.3`)
